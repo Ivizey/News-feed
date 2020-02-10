@@ -14,7 +14,7 @@
 		4776A3D02365AC1600B5EB13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4776A3CF2365AC1600B5EB13 /* Assets.xcassets */; };
 		4776A3D32365AC1600B5EB13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776A3D12365AC1600B5EB13 /* LaunchScreen.storyboard */; };
 		4776A3DC2365AEC300B5EB13 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3DB2365AEC300B5EB13 /* Article.swift */; };
-		4776A3DE2365AF9600B5EB13 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3DD2365AF9600B5EB13 /* Model.swift */; };
+		4776A3DE2365AF9600B5EB13 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		4776A3D22365AC1600B5EB13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4776A3D42365AC1600B5EB13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4776A3DB2365AEC300B5EB13 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		4776A3DD2365AF9600B5EB13 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				4776A3DB2365AEC300B5EB13 /* Article.swift */,
-				4776A3DD2365AF9600B5EB13 /* Model.swift */,
+				4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4776A3DE2365AF9600B5EB13 /* Model.swift in Sources */,
+				4776A3DE2365AF9600B5EB13 /* NewsFeed.swift in Sources */,
 				4776A3DC2365AEC300B5EB13 /* Article.swift in Sources */,
 				4776A3CB2365AC1500B5EB13 /* ViewController.swift in Sources */,
 				4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */,
