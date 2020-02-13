@@ -9,7 +9,7 @@
 import Foundation
 
 struct NewsFeed: Codable {
-    let status: String
-    let totalResults: Int
-    let articles: [Article]
+    var status: String?
+    var totalResults: Int?
+    var articles: [Article]?
 }

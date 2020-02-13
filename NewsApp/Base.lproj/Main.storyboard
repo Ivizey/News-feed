@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,82 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="meX-nt-1r1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="LsW-b9-u3K" customClass="NewsCell" customModule="NewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LsW-b9-u3K" id="6xo-NP-Hjd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="urZ-nD-yt8">
+                                                    <rect key="frame" x="0.0" y="1" width="414" height="174.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noah’s Event Venue closes without warning - WYFF4 Greenville" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzL-8S-5Bz">
+                                                    <rect key="frame" x="20" y="184" width="374" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All 30 locations across country have closed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mn0-Cx-jit">
+                                                    <rect key="frame" x="20" y="233" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bzL-8S-5Bz" firstAttribute="leading" secondItem="6xo-NP-Hjd" secondAttribute="leading" constant="20" id="05M-4y-dHO"/>
+                                                <constraint firstItem="urZ-nD-yt8" firstAttribute="top" secondItem="6xo-NP-Hjd" secondAttribute="top" id="IsH-5g-NiL"/>
+                                                <constraint firstAttribute="bottom" secondItem="urZ-nD-yt8" secondAttribute="bottom" constant="124" id="Pnh-H6-ZPG"/>
+                                                <constraint firstAttribute="trailing" secondItem="bzL-8S-5Bz" secondAttribute="trailing" constant="20" id="Yvx-E0-LrW"/>
+                                                <constraint firstItem="bzL-8S-5Bz" firstAttribute="top" secondItem="urZ-nD-yt8" secondAttribute="bottom" constant="8" id="bq3-cj-LYZ"/>
+                                                <constraint firstItem="mn0-Cx-jit" firstAttribute="top" secondItem="bzL-8S-5Bz" secondAttribute="bottom" constant="8" id="gTA-sz-65d"/>
+                                                <constraint firstItem="mn0-Cx-jit" firstAttribute="leading" secondItem="6xo-NP-Hjd" secondAttribute="leading" constant="20" id="jtD-z8-gdB"/>
+                                                <constraint firstAttribute="trailing" secondItem="urZ-nD-yt8" secondAttribute="trailing" id="mos-4m-fEd"/>
+                                                <constraint firstItem="urZ-nD-yt8" firstAttribute="leading" secondItem="6xo-NP-Hjd" secondAttribute="leading" id="rtg-0R-67s"/>
+                                                <constraint firstAttribute="trailing" secondItem="mn0-Cx-jit" secondAttribute="trailing" constant="20" id="wgF-0B-S6b"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="mn0-Cx-jit" id="3vp-nk-ffS"/>
+                                            <outlet property="imageNews" destination="urZ-nD-yt8" id="osO-fp-zSN"/>
+                                            <outlet property="titleLabel" destination="bzL-8S-5Bz" id="bLv-C1-EZS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="zFd-jD-Ff3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="meX-nt-1r1" secondAttribute="bottom" id="989-u5-5Zw"/>
+                            <constraint firstItem="meX-nt-1r1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="G0Q-Gw-YJf"/>
+                            <constraint firstItem="meX-nt-1r1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G3R-gR-bJO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="meX-nt-1r1" secondAttribute="trailing" id="PfX-X8-QAb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="newsTable" destination="meX-nt-1r1" id="efY-6t-thc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="globe" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
