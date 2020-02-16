@@ -10,12 +10,12 @@ import Foundation
 
 class NetworkService {
     private let API_KEY = "YOUR_KEY"
-    private func fetchNewsFeed(completionHandler: @escaping (NewsFeed?, Error?) -> ()) {
+    func fetchNewsFeed(completionHandler: @escaping (NewsFeed?, Error?) -> ()) {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "newsapi.org"
         components.path = "/v2/top-headlines"
-        components.queryItems = [URLQueryItem(name: "country", value: "us"),
+        components.queryItems = [URLQueryItem(name: "country", value: "ua"),
                                  URLQueryItem(name: "apiKey", value: API_KEY)]
         guard let url = components.url else { return }
         URLSession

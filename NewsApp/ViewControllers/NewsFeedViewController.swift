@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NewsFeedViewController.swift
 //  NewsApp
 //
 //  Created by Pavel Bondar on 10/27/19.
@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NewsFeedViewController: UIViewController {
     @IBOutlet private weak var newsTable: UITableView!
+    private let networkServices = NetworkService()
     
     public struct Props {
-        var status: String
-        var totalResults: Int
+        var status: String?
+        var totalResults: Int?
         var articles: [Article]
     }
     
-    public var props: Props = Props(status: "", totalResults: 0, articles: [Article]()) {
+    public var props: Props = Props(status: "", totalResults: 0,
+                                    articles: [Article]()) {
         didSet {
-            self.newsTable.reloadData()
+            DispatchQueue.main.async {
+                self.newsTable.reloadData()
+            }
         }
     }
     
@@ -27,12 +31,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
-        navigationItem.title = "NBC News"
+        navigationItem.title = "News Feed"
+        getNews()
         
+    }
+    
+    private func getNews() {
+        networkServices.fetchNewsFeed { [weak self] (news, error) in
+            DispatchQueue.main.async {
+                self?.props.status = news?.status
+                self?.props.totalResults = news?.totalResults
+                self?.props.articles = news?.articles ?? [Article]()
+            }
+        }
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension NewsFeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.props.articles.count
     }
