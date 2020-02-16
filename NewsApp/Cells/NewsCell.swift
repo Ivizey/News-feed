@@ -13,15 +13,15 @@ class NewsCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
-    func setImage(image: UIImage) {
-        imageNews.image = image
+    func setImage(image: UIImage?) {
+        imageNews.image = image ?? UIImage()
     }
     
-    func setTitle(title: String) {
-        titleLabel.text = title
+    func setTitle(title: String?) {
+        titleLabel.text = title ?? ""
     }
     
-    func setDescription(description: String) {
-        descriptionLabel.text = description
+    func setDescription(description: String?) {
+        descriptionLabel.text = description ?? ""
     }
 }
