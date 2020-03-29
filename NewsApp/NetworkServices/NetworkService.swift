@@ -10,6 +10,42 @@ import Foundation
 
 class NetworkService {
     private let API_KEY = "YOUR_KEY"
+    
+    struct Users: Codable {
+        let data: [UserList]
+    }
+    
+    struct UserList: Codable {
+        let id: Int
+        let email: String
+        let first_name: String
+        let last_name: String
+    }
+    
+    func fetchDataGET() {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "reqres.in"
+        components.path = "/api/users"
+        components.queryItems = [URLQueryItem(name: "page", value: "2")]
+        guard let url = components.url else { return }
+        URLSession
+            .shared
+            .dataTask(with: url) { (data, response, error) in
+                guard let response = response as? HTTPURLResponse else { return }
+                if let data = data, (200...299).contains(response.statusCode) {
+                    do {
+                        let courses = try JSONDecoder().decode(Users.self, from: data)
+                        print(courses)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+        }.resume()
+    }
+    
+    
+    
     func fetchNewsFeed(completionHandler: @escaping (NewsFeed?, Error?) -> ()) {
         var components = URLComponents()
         components.scheme = "https"
