@@ -67,6 +67,29 @@ class NetworkService {
         }.resume()
     }
     
+    func fetchDataPUT() {
+        guard let url = URL(string: "https://reqres.in/api/users/2") else { return }
+        let parameters = ["name": "morpheus", "job" : "zion resident"]
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            guard let data = data else { return }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    
     func fetchNewsFeed(completionHandler: @escaping (NewsFeed?, Error?) -> ()) {
         var components = URLComponents()
         components.scheme = "https"

@@ -33,7 +33,7 @@ class NewsFeedViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .automatic
         navigationItem.title = "News Feed"
         getNews()
-        networkServices.fetchDataPOST()
+        networkServices.fetchDataPUT()
     }
     
     private func getNews() {
