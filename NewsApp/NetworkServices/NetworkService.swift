@@ -22,6 +22,41 @@ class NetworkService {
         let last_name: String
     }
     
+    
+    
+    
+    struct CoursesList: Codable {
+        var courses: [Courses]
+    }
+    
+    struct Courses: Codable {
+        var id: Int
+        var title: String
+        var lecturer_id: Int
+        var created_at: String
+    }
+
+    func fetchCoursesList() {
+        guard let url = URL(string: "https://quick-test-test-server.herokuapp.com/api/documents/courses") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("aa76d406-db38-4508-8ed6-65b569fcb161", forHTTPHeaderField: "X-Auth-Token")
+        let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            guard let data = data else { return }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    
+    
     func fetchDataGET() {
         var components = URLComponents()
         components.scheme = "https"
