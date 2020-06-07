@@ -23,6 +23,10 @@ class ModelBuilder: Builder {
     }
     
     static func createDetailModule(article: Article?) -> UIViewController {
-        
+        let view = DetailViewController()
+        let networkService = NetworkService()
+        let presenter = DetailPresenter(view: view, networkService: networkService, article: article)
+        view.presenter = presenter
+        return view
     }
 }
