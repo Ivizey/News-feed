@@ -93,5 +93,35 @@ class NewsModuleTest: XCTestCase {
         }
         
         XCTAssertNotEqual(catchNews?.articles.count, 0)
+        XCTAssertEqual(catchNews?.articles.count, newsFeed.articles.count)
+    }
+    
+    func testGetFailureNewsFeed() {
+        _ = NewsFeed(status: "ok", totalResults: 1, articles: [
+            Article(source: Source(id: "id", name: "Baz"),
+                    author: "Foo",
+                    title: "title",
+                    description: "description",
+                    url: nil,
+                    urlToImage: nil,
+                    publishedAt: nil,
+                    content: "content")
+        ])
+        view = MockView()
+        networkService = MockNetworkService()
+        presenter = NewsPresenter(view: view, networkService: networkService, router: router)
+        
+        var catchError: Error?
+        
+        networkService.getNews { result in
+            switch result {
+            case .success(let newsFeed):
+                print("NewsFeed: \(newsFeed!)")
+            case .failure(let error):
+                catchError = error
+            }
+        }
+        
+        XCTAssertNotNil(catchError, "Error is not nil")
     }
 }
