@@ -10,7 +10,7 @@ import UIKit
 
 class NewsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
-    private var presenter: NewsViewPresenterProtocol!
+    var presenter: NewsViewPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

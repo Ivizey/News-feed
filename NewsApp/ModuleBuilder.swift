@@ -9,11 +9,15 @@
 import UIKit.UIViewController
 
 protocol Builder {
-    static func createNews() -> UIViewController
+    static func createNewsModule() -> UIViewController
 }
 
 class ModelBuilder: Builder {
-    static func createNews() -> UIViewController {
-        return NewsViewController()
+    static func createNewsModule() -> UIViewController {
+        let view = NewsViewController()
+        let networkService = NetworkService()
+        let presenter = NewsPresenter(view: view, networkService: networkService)
+        view.presenter = presenter
+        return view
     }
 }
