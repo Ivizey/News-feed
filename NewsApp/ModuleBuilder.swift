@@ -9,12 +9,12 @@
 import UIKit.UIViewController
 
 protocol AsselderBuilderProtocol {
-    func createNewsModule() -> UIViewController
-    func createDetailModule(article: Article?) -> UIViewController
+    func createNewsModule(router: RouterProtocol) -> UIViewController
+    func createDetailModule(article: Article?, router: RouterProtocol) -> UIViewController
 }
 
-class AsselderModelBuilder: AsselderBuilderProtocol {
-    func createNewsModule() -> UIViewController {
+class AsselderModelBuilder: AsselderBuilderProtocol {    
+    func createNewsModule(router: RouterProtocol) -> UIViewController {
         let view = NewsViewController()
         let networkService = NetworkService()
         let presenter = NewsPresenter(view: view, networkService: networkService)
@@ -22,7 +22,7 @@ class AsselderModelBuilder: AsselderBuilderProtocol {
         return view
     }
     
-    func createDetailModule(article: Article?) -> UIViewController {
+    func createDetailModule(article: Article?, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
         let presenter = DetailPresenter(view: view, networkService: networkService, article: article)
