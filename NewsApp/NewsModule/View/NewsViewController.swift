@@ -36,8 +36,7 @@ extension NewsViewController: UITableViewDataSource {
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = presenter.newsFeed?.articles[indexPath.row]
-//        let detailViewController = AsselderModelBuilder.createDetailModule(article: article)
-//        navigationController?.pushViewController(detailViewController, animated: true)
+        presenter.tapOnTheArticle(article: article)
     }
 }
 

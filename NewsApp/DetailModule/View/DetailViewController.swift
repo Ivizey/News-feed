@@ -22,8 +22,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         presenter.setArticle()
     }
-    
-    @IBAction func goToWeb(_ sender: UIButton) {
+    @IBAction func didTapButton(_ sender: UIButton) {
+        presenter.goToWeb()
     }
 }
 

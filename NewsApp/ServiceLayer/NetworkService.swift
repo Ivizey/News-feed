@@ -29,7 +29,7 @@ class NetworkService: NetworkServiceProtocol {
                 guard let response = response as? HTTPURLResponse else { return }
                 if let data = data, (200...299).contains(response.statusCode) {
                     do {
-                        let news = try JSONDecoder().decode(NewsFeed.self, from: data)
+                        let news = try JSONDecoder().decode(NewsFeed?.self, from: data)
                         completion(.success(news))
                     } catch {
                         print(error.localizedDescription)

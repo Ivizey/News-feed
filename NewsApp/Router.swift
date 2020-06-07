@@ -16,6 +16,7 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
     func initialViewController()
     func showDetail(article: Article?)
+    func goToWeb(url: URL?)
 }
 
 class Router: RouterProtocol {
@@ -38,6 +39,12 @@ class Router: RouterProtocol {
         if let navigationController = navigationController {
             guard let detailViewController = assemblyBuilder?.createDetailModule(article: article, router: self) else { return }
             navigationController.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
+    func goToWeb(url: URL?) {
+        if let url = url {
+            UIApplication.shared.open(url)
         }
     }
 }

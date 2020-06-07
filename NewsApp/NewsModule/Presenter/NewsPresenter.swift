@@ -17,6 +17,7 @@ protocol NewsViewPresenterProtocol: class {
     init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     func getNews()
     var newsFeed: NewsFeed? { get set }
+    func tapOnTheArticle(article: Article?)
 }
 
 class NewsPresenter: NewsViewPresenterProtocol {
@@ -30,6 +31,10 @@ class NewsPresenter: NewsViewPresenterProtocol {
         self.networkService = networkService
         self.router = router
         getNews()
+    }
+    
+    func tapOnTheArticle(article: Article?) {
+        router?.showDetail(article: article)
     }
     
     func getNews() {
