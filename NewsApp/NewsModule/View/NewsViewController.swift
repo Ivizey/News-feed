@@ -14,7 +14,8 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -24,7 +25,7 @@ extension NewsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let article = presenter.newsFeed?.articles[indexPath.row]
         cell.textLabel?.text = article?.title
         cell.detailTextLabel?.text = article?.description
@@ -34,6 +35,7 @@ extension NewsViewController: UITableViewDataSource {
 
 extension NewsViewController: NewsViewProtocol {
     func succes() {
+        self.title = "Результатів: \(presenter.newsFeed?.totalResults ?? 0)"
         tableView.reloadData()
     }
     
