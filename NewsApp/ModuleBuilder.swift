@@ -10,6 +10,7 @@ import UIKit.UIViewController
 
 protocol Builder {
     static func createNewsModule() -> UIViewController
+    static func createDetailModule(article: Article?) -> UIViewController
 }
 
 class ModelBuilder: Builder {
@@ -19,5 +20,9 @@ class ModelBuilder: Builder {
         let presenter = NewsPresenter(view: view, networkService: networkService)
         view.presenter = presenter
         return view
+    }
+    
+    static func createDetailModule(article: Article?) -> UIViewController {
+        
     }
 }

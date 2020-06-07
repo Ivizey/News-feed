@@ -21,6 +21,8 @@
 		47FE8097248CECC2002AB3C9 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE8096248CECC2002AB3C9 /* NewsViewController.xib */; };
 		47FE8099248CED8D002AB3C9 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */; };
 		47FE809B248D02BA002AB3C9 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE809A248D02BA002AB3C9 /* DetailPresenter.swift */; };
+		47FE80A0248D0618002AB3C9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE809E248D0618002AB3C9 /* DetailViewController.swift */; };
+		47FE80A1248D0618002AB3C9 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE809F248D0618002AB3C9 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		47FE8096248CECC2002AB3C9 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		47FE809A248D02BA002AB3C9 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		47FE809E248D0618002AB3C9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		47FE809F248D0618002AB3C9 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +154,19 @@
 		47FE809D248D0577002AB3C9 /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
+				47FE80A2248D061F002AB3C9 /* View */,
 				47FE809C248D0564002AB3C9 /* Presenter */,
 			);
 			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		47FE80A2248D061F002AB3C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47FE809E248D0618002AB3C9 /* DetailViewController.swift */,
+				47FE809F248D0618002AB3C9 /* DetailViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +229,7 @@
 			files = (
 				4776A3D32365AC1600B5EB13 /* LaunchScreen.storyboard in Resources */,
 				4776A3D02365AC1600B5EB13 /* Assets.xcassets in Resources */,
+				47FE80A1248D0618002AB3C9 /* DetailViewController.xib in Resources */,
 				4776A3CE2365AC1500B5EB13 /* Main.storyboard in Resources */,
 				47FE8097248CECC2002AB3C9 /* NewsViewController.xib in Resources */,
 			);
@@ -227,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47FE80A0248D0618002AB3C9 /* DetailViewController.swift in Sources */,
 				4776A3DE2365AF9600B5EB13 /* NewsFeed.swift in Sources */,
 				4776A3DC2365AEC300B5EB13 /* Article.swift in Sources */,
 				4776A3CB2365AC1500B5EB13 /* NewsViewController.swift in Sources */,
