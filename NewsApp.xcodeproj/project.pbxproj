@@ -26,6 +26,7 @@
 		47FE80A4248D17E8002AB3C9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE80A3248D17E8002AB3C9 /* Router.swift */; };
 		47FE80AC248D32E6002AB3C9 /* NewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE80AB248D32E6002AB3C9 /* NewsAppTests.swift */; };
 		47FE80B5248D3349002AB3C9 /* NewsModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE80B4248D3349002AB3C9 /* NewsModuleTest.swift */; };
+		47FE80B7248D4505002AB3C9 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE80B6248D4505002AB3C9 /* RouterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		47FE80AB248D32E6002AB3C9 /* NewsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppTests.swift; sourceTree = "<group>"; };
 		47FE80AD248D32E6002AB3C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47FE80B4248D3349002AB3C9 /* NewsModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModuleTest.swift; sourceTree = "<group>"; };
+		47FE80B6248D4505002AB3C9 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				47FE80B4248D3349002AB3C9 /* NewsModuleTest.swift */,
+				47FE80B6248D4505002AB3C9 /* RouterTest.swift */,
 			);
 			path = TestNewsModule;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47FE80B5248D3349002AB3C9 /* NewsModuleTest.swift in Sources */,
+				47FE80B7248D4505002AB3C9 /* RouterTest.swift in Sources */,
 				47FE80AC248D32E6002AB3C9 /* NewsAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
