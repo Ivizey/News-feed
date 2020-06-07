@@ -23,6 +23,7 @@
 		47FE809B248D02BA002AB3C9 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE809A248D02BA002AB3C9 /* DetailPresenter.swift */; };
 		47FE80A0248D0618002AB3C9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE809E248D0618002AB3C9 /* DetailViewController.swift */; };
 		47FE80A1248D0618002AB3C9 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE809F248D0618002AB3C9 /* DetailViewController.xib */; };
+		47FE80A4248D17E8002AB3C9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE80A3248D17E8002AB3C9 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		47FE809A248D02BA002AB3C9 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		47FE809E248D0618002AB3C9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		47FE809F248D0618002AB3C9 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		47FE80A3248D17E8002AB3C9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				4776A3C62365AC1500B5EB13 /* AppDelegate.swift */,
 				4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */,
 				47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */,
+				47FE80A3248D17E8002AB3C9 /* Router.swift */,
 				47FE809D248D0577002AB3C9 /* DetailModule */,
 				47FE8094248CEBCC002AB3C9 /* NewsModule */,
 				4743960423F96875003C0571 /* ServiceLayer */,
@@ -248,6 +251,7 @@
 				4776A3CB2365AC1500B5EB13 /* NewsViewController.swift in Sources */,
 				47FE809B248D02BA002AB3C9 /* DetailPresenter.swift in Sources */,
 				47FE8092248CE96B002AB3C9 /* NewsPresenter.swift in Sources */,
+				47FE80A4248D17E8002AB3C9 /* Router.swift in Sources */,
 				4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */,
 				47FE8099248CED8D002AB3C9 /* ModuleBuilder.swift in Sources */,
 				4743960323F9686C003C0571 /* NetworkService.swift in Sources */,

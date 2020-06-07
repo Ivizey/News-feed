@@ -24,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPl-Wc-Wsx">
-                    <rect key="frame" x="20" y="307" width="414" height="33.5"/>
+                    <rect key="frame" x="20" y="307" width="374" height="33.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                     <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-yz-oUe">
-                    <rect key="frame" x="20" y="350.5" width="414" height="20.5"/>
+                    <rect key="frame" x="20" y="350.5" width="374" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -84,11 +84,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u1V-A0-Rmh" secondAttribute="trailing" constant="20" id="GTj-7p-1fE"/>
                 <constraint firstItem="Acm-bI-qLb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hly-Jk-FAc"/>
                 <constraint firstItem="H3i-CB-BS0" firstAttribute="top" secondItem="6jz-DJ-M3a" secondAttribute="bottom" constant="10" id="KUR-6u-26l"/>
-                <constraint firstItem="Ifc-yz-oUe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="20" id="VJQ-bC-2XB"/>
+                <constraint firstItem="Ifc-yz-oUe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="VJQ-bC-2XB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6jz-DJ-M3a" secondAttribute="trailing" constant="20" id="Xn2-ED-TOL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="H3i-CB-BS0" secondAttribute="trailing" constant="20" id="e5z-gm-j7F"/>
                 <constraint firstItem="u1V-A0-Rmh" firstAttribute="top" secondItem="Ifc-yz-oUe" secondAttribute="bottom" constant="10" id="eu2-If-A8Z"/>
-                <constraint firstItem="GPl-Wc-Wsx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="20" id="nwA-qw-6ZI"/>
+                <constraint firstItem="GPl-Wc-Wsx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="nwA-qw-6ZI"/>
                 <constraint firstItem="6jz-DJ-M3a" firstAttribute="top" secondItem="u1V-A0-Rmh" secondAttribute="bottom" constant="10" id="pGF-WJ-6qn"/>
                 <constraint firstItem="6jz-DJ-M3a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rcz-dB-Kwf"/>
                 <constraint firstItem="u1V-A0-Rmh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rvv-Nh-KEd"/>

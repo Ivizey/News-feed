@@ -14,7 +14,6 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
@@ -28,8 +27,17 @@ extension NewsViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let article = presenter.newsFeed?.articles[indexPath.row]
         cell.textLabel?.text = article?.title
+        cell.textLabel?.textColor = .systemBlue
         cell.detailTextLabel?.text = article?.description
         return cell
+    }
+}
+
+extension NewsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = presenter.newsFeed?.articles[indexPath.row]
+//        let detailViewController = AsselderModelBuilder.createDetailModule(article: article)
+//        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

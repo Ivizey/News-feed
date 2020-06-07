@@ -8,13 +8,13 @@
 
 import UIKit.UIViewController
 
-protocol Builder {
-    static func createNewsModule() -> UIViewController
-    static func createDetailModule(article: Article?) -> UIViewController
+protocol AsselderBuilderProtocol {
+    func createNewsModule() -> UIViewController
+    func createDetailModule(article: Article?) -> UIViewController
 }
 
-class ModelBuilder: Builder {
-    static func createNewsModule() -> UIViewController {
+class AsselderModelBuilder: AsselderBuilderProtocol {
+    func createNewsModule() -> UIViewController {
         let view = NewsViewController()
         let networkService = NetworkService()
         let presenter = NewsPresenter(view: view, networkService: networkService)
@@ -22,7 +22,7 @@ class ModelBuilder: Builder {
         return view
     }
     
-    static func createDetailModule(article: Article?) -> UIViewController {
+    func createDetailModule(article: Article?) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkService()
         let presenter = DetailPresenter(view: view, networkService: networkService, article: article)
