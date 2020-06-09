@@ -20,8 +20,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         presenter.setArticle()
     }
+    
     @IBAction func didTapButton(_ sender: UIButton) {
         presenter.goToWeb()
     }
@@ -34,5 +36,21 @@ extension DetailViewController: DetailViewProtocol {
         authorLabel.text = article?.author
         publishedLabel.text = article?.publishedAt
         sourceLabel.text = article?.source.name
+        image.load(url: article?.urlToImage)
+    }
+}
+
+extension UIImageView {
+    func load(url: URL?) {
+        guard let url = url else { return }
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
