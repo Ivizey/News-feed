@@ -29,13 +29,13 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="tVp-8k-4m9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2k1-lh-vNr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="tVp-8k-4m9" secondAttribute="bottom" id="4ur-W5-cib"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tVp-8k-4m9" secondAttribute="trailing" id="DN7-ON-Dod"/>
-                <constraint firstItem="tVp-8k-4m9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qI4-Dp-su7"/>
                 <constraint firstItem="tVp-8k-4m9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zBL-h6-9fg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="117"/>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </view>
     </objects>
 </document>

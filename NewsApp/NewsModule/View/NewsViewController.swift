@@ -27,9 +27,16 @@ extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let article = presenter.newsFeed?.articles[indexPath.row]
+        let source = article?.source.name?.prefix(1).lowercased()
         cell.textLabel?.text = article?.title
         cell.textLabel?.textColor = .systemBlue
+        cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = article?.description
+        cell.detailTextLabel?.textColor = .darkGray
+        if let source = source {
+            cell.imageView?.image = UIImage(systemName: "\(source).square")
+            cell.imageView?.tintColor = .black
+        }
         return cell
     }
 }

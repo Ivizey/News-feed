@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct Source: Codable {
+    let id: String?
+    let name: String?
+}
+
 struct Article: Codable {
     let source: Source
     let author: String?
@@ -17,9 +22,4 @@ struct Article: Codable {
     let urlToImage: URL?
     let publishedAt: String?
     let content: String?
-}
-
-struct Source: Codable {
-    let id: String?
-    let name: String?
 }

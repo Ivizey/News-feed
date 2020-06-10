@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIApplication
 
 protocol DetailViewProtocol: class {
     func setArticle(article: Article?)
@@ -37,6 +38,8 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
     
     func goToWeb() {
-        router?.goToWeb(url: article?.url)
+        if let url = article?.url {
+            UIApplication.shared.open(url)
+        }
     }
 }
