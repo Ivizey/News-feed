@@ -17,6 +17,17 @@
 		4776A3D32365AC1600B5EB13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4776A3D12365AC1600B5EB13 /* LaunchScreen.storyboard */; };
 		4776A3DC2365AEC300B5EB13 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3DB2365AEC300B5EB13 /* Article.swift */; };
 		4776A3DE2365AF9600B5EB13 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */; };
+		47CF952C2490F19B0030DE2B /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF952B2490F19A0030DE2B /* JSONParameterEncoder.swift */; };
+		47CF952E2490F1BE0030DE2B /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF952D2490F1BE0030DE2B /* ParameterEncoding.swift */; };
+		47CF95302490F1E60030DE2B /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF952F2490F1E60030DE2B /* URLParameterEncoder.swift */; };
+		47CF95332490F21F0030DE2B /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF95322490F21F0030DE2B /* EndPoint.swift */; };
+		47CF95362490F2830030DE2B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF95352490F2830030DE2B /* NetworkError.swift */; };
+		47CF95382490F2DA0030DE2B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF95372490F2DA0030DE2B /* NetworkManager.swift */; };
+		47CF953B2490F3300030DE2B /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF953A2490F3300030DE2B /* EndPointType.swift */; };
+		47CF953D2490F3510030DE2B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF953C2490F3510030DE2B /* HTTPMethod.swift */; };
+		47CF953F2490F36F0030DE2B /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF953E2490F36F0030DE2B /* HTTPTask.swift */; };
+		47CF95412490F3920030DE2B /* NetworkRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF95402490F3920030DE2B /* NetworkRouterProtocol.swift */; };
+		47CF95432490F4260030DE2B /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CF95422490F4260030DE2B /* NetworkRouter.swift */; };
 		47FE8092248CE96B002AB3C9 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE8091248CE96B002AB3C9 /* NewsPresenter.swift */; };
 		47FE8097248CECC2002AB3C9 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE8096248CECC2002AB3C9 /* NewsViewController.xib */; };
 		47FE8099248CED8D002AB3C9 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */; };
@@ -52,6 +63,17 @@
 		4776A3D42365AC1600B5EB13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4776A3DB2365AEC300B5EB13 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
+		47CF952B2490F19A0030DE2B /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		47CF952D2490F1BE0030DE2B /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		47CF952F2490F1E60030DE2B /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		47CF95322490F21F0030DE2B /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		47CF95352490F2830030DE2B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		47CF95372490F2DA0030DE2B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		47CF953A2490F3300030DE2B /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		47CF953C2490F3510030DE2B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		47CF953E2490F36F0030DE2B /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		47CF95402490F3920030DE2B /* NetworkRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterProtocol.swift; sourceTree = "<group>"; };
+		47CF95422490F4260030DE2B /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		47FE8091248CE96B002AB3C9 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		47FE8096248CECC2002AB3C9 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
@@ -105,6 +127,10 @@
 		4743960423F96875003C0571 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				47CF95312490F2110030DE2B /* EndPoint */,
+				47CF95342490F26B0030DE2B /* Manager */,
+				47CF95392490F31A0030DE2B /* Service */,
+				47CF952A2490F1800030DE2B /* Encoding */,
 				4743960223F9686C003C0571 /* NetworkService.swift */,
 			);
 			path = ServiceLayer;
@@ -153,6 +179,45 @@
 				4776A3DB2365AEC300B5EB13 /* Article.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		47CF952A2490F1800030DE2B /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				47CF952B2490F19A0030DE2B /* JSONParameterEncoder.swift */,
+				47CF952D2490F1BE0030DE2B /* ParameterEncoding.swift */,
+				47CF952F2490F1E60030DE2B /* URLParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		47CF95312490F2110030DE2B /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				47CF95322490F21F0030DE2B /* EndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		47CF95342490F26B0030DE2B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				47CF95352490F2830030DE2B /* NetworkError.swift */,
+				47CF95372490F2DA0030DE2B /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		47CF95392490F31A0030DE2B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				47CF953A2490F3300030DE2B /* EndPointType.swift */,
+				47CF953C2490F3510030DE2B /* HTTPMethod.swift */,
+				47CF953E2490F36F0030DE2B /* HTTPTask.swift */,
+				47CF95402490F3920030DE2B /* NetworkRouterProtocol.swift */,
+				47CF95422490F4260030DE2B /* NetworkRouter.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		47FE8094248CEBCC002AB3C9 /* NewsModule */ = {
@@ -321,13 +386,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47CF953F2490F36F0030DE2B /* HTTPTask.swift in Sources */,
+				47CF95412490F3920030DE2B /* NetworkRouterProtocol.swift in Sources */,
+				47CF95382490F2DA0030DE2B /* NetworkManager.swift in Sources */,
+				47CF95432490F4260030DE2B /* NetworkRouter.swift in Sources */,
+				47CF95362490F2830030DE2B /* NetworkError.swift in Sources */,
+				47CF952E2490F1BE0030DE2B /* ParameterEncoding.swift in Sources */,
+				47CF953B2490F3300030DE2B /* EndPointType.swift in Sources */,
 				47FE80A0248D0618002AB3C9 /* DetailViewController.swift in Sources */,
 				4776A3DE2365AF9600B5EB13 /* NewsFeed.swift in Sources */,
 				4776A3DC2365AEC300B5EB13 /* Article.swift in Sources */,
 				4776A3CB2365AC1500B5EB13 /* NewsViewController.swift in Sources */,
+				47CF953D2490F3510030DE2B /* HTTPMethod.swift in Sources */,
+				47CF952C2490F19B0030DE2B /* JSONParameterEncoder.swift in Sources */,
 				47FE809B248D02BA002AB3C9 /* DetailPresenter.swift in Sources */,
 				47FE8092248CE96B002AB3C9 /* NewsPresenter.swift in Sources */,
+				47CF95302490F1E60030DE2B /* URLParameterEncoder.swift in Sources */,
 				47FE80A4248D17E8002AB3C9 /* Router.swift in Sources */,
+				47CF95332490F21F0030DE2B /* EndPoint.swift in Sources */,
 				4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */,
 				47FE8099248CED8D002AB3C9 /* ModuleBuilder.swift in Sources */,
 				4743960323F9686C003C0571 /* NetworkService.swift in Sources */,
