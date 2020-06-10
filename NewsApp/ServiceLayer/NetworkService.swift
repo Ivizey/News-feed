@@ -20,7 +20,7 @@ class NetworkService: NetworkServiceProtocol {
         components.scheme = "https"
         components.host = "newsapi.org"
         components.path = "/v2/top-headlines"
-        components.queryItems = [URLQueryItem(name: "country", value: "ua"),
+        components.queryItems = [URLQueryItem(name: "country", value: "us"),
                                  URLQueryItem(name: "apiKey", value: API_KEY)]
         guard let url = components.url else { return }
         URLSession

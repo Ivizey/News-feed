@@ -16,6 +16,8 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
+        navigationItem.searchController = UISearchController(searchResultsController: nil)
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 }
 
@@ -45,6 +47,17 @@ extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = presenter.newsFeed?.articles[indexPath.row]
         presenter.tapOnTheArticle(article: article)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let openBrowser = UIContextualAction(style: .normal, title: "Open in browser") {  (contextualAction, view, boolValue) in
+            print("Delete")
+        }
+        let share = UIContextualAction(style: .normal, title: "Share") {  (contextualAction, view, boolValue) in
+            print("Share")
+        }
+        share.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [openBrowser, share])
     }
 }
 
