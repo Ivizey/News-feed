@@ -10,6 +10,7 @@ import UIKit
 
 class NewsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    private var timer: Timer?
     var presenter: NewsViewPresenterProtocol!
 }
 

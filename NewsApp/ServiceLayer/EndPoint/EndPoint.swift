@@ -13,8 +13,8 @@ enum NetworkEnvironment {
 }
 
 public enum NewsApi {
-    case country(letters: String, page: Int)
-    case category(category: String)
+    case country(country: String, page: Int)
+    case category(country: String,category: String)
     case search(q: String)
 }
 
@@ -35,10 +35,10 @@ extension NewsApi: EndPointType {
         switch self {
         case .country(let letters, let page):
             return "v2/top-headlines?country=\(letters)&page=\(page)"
-        case .category(let category):
-            return "/v2/top-headlines?country=de&category=\(category)"
+        case .category(let country, let category):
+            return "/v2/top-headlines?country=\(country)&category=\(category)"
         case .search(let q):
-            return "v2/top-headlines?q=\(q)"
+            return "v2/everything?q=\(q)&sortBy=publishedAt"
         }
     }
     
@@ -52,6 +52,10 @@ extension NewsApi: EndPointType {
             return .requestParameters(bodyParameters: nil,
                                       urlParameters: ["country": letters,
                                                       "page": page,
+                                                      "apiKey":NetworkManager.newsAPIKey])
+        case .search(let q):
+            return .requestParameters(bodyParameters: nil,
+                                      urlParameters: ["q": q,
                                                       "apiKey":NetworkManager.newsAPIKey])
             
         default:

@@ -24,7 +24,7 @@ protocol NewsViewPresenterProtocol: class {
 }
 
 class NewsPresenter: NewsViewPresenterProtocol {
-    
+
     weak var view: NewsViewProtocol?
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol!
@@ -44,10 +44,8 @@ class NewsPresenter: NewsViewPresenterProtocol {
     }
     
     func share(url: URL?) -> UIActivityViewController? {
-        if let url = url {
-            return UIActivityViewController(activityItems: [url], applicationActivities: [])
-        }
-        return nil
+        guard let url = url else { return nil }
+        return UIActivityViewController(activityItems: [url], applicationActivities: [])
     }
     
     func tapOnTheArticle(article: Article?) {
@@ -55,7 +53,7 @@ class NewsPresenter: NewsViewPresenterProtocol {
     }
     
     func getNews() {
-        networkService.dataLoader(to: .country(letters: "ua", page: 2)) { [weak self] (result: Result<NewsFeed, APIError>) in
+        networkService.dataLoader(to: .country(country: "ua", page: 1)) { [weak self] (result: Result<NewsFeed, APIError>) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
