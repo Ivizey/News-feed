@@ -14,7 +14,7 @@ protocol DetailViewProtocol: class {
 }
 
 protocol DetailViewPresenterProtocol: class {
-    init(view: DetailViewProtocol, networkService: NetworkService, router: RouterProtocol, article: Article?)
+    init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?)
     func setArticle()
     func goToWeb()
 }
@@ -26,7 +26,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
     let networkService: NetworkServiceProtocol!
     var article: Article?
     
-    required init(view: DetailViewProtocol, networkService: NetworkService, router: RouterProtocol, article: Article?) {
+    required init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?) {
         self.view = view
         self.networkService = networkService
         self.article = article

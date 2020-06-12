@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4743960323F9686C003C0571 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4743960223F9686C003C0571 /* NetworkService.swift */; };
 		47457B3423F210E700093A5E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47457B3323F210E700093A5E /* NewsCell.swift */; };
 		4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3C62365AC1500B5EB13 /* AppDelegate.swift */; };
 		4776A3C92365AC1500B5EB13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */; };
@@ -51,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4743960223F9686C003C0571 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		47457B3323F210E700093A5E /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		4776A3C32365AC1500B5EB13 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4776A3C62365AC1500B5EB13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				47CF95342490F26B0030DE2B /* Manager */,
 				47CF95392490F31A0030DE2B /* Service */,
 				47CF952A2490F1800030DE2B /* Encoding */,
-				4743960223F9686C003C0571 /* NetworkService.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -406,7 +403,6 @@
 				47CF95332490F21F0030DE2B /* EndPoint.swift in Sources */,
 				4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */,
 				47FE8099248CED8D002AB3C9 /* ModuleBuilder.swift in Sources */,
-				4743960323F9686C003C0571 /* NetworkService.swift in Sources */,
 				47457B3423F210E700093A5E /* NewsCell.swift in Sources */,
 				4776A3C92365AC1500B5EB13 /* SceneDelegate.swift in Sources */,
 			);

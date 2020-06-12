@@ -18,13 +18,16 @@ fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> APIError 
     }
 }
 
-struct NetworkManager {
-    
+protocol NetworkServiceProtocol {
+    func dataLoader<T: Decodable>(to endPoint: NewsApi, then handler: @escaping (Swift.Result<T, APIError>) -> Void)
+}
+
+struct NetworkManager: NetworkServiceProtocol {
     static let environment: NetworkEnvironment = .newsAPI
-    static let NewsAPIKey = "84a521a08cf141aa8bbe269df5f99439"
-    static let router = NetworkRouter<NewsApi>()
+    static let newsAPIKey = "84a521a08cf141aa8bbe269df5f99439"
+    private let router = NetworkRouter<NewsApi>()
     
-    static func dataLoader<T: Decodable>(to endPoint: NewsApi, then handler: @escaping FetchHandler<T>) {
+    func dataLoader<T: Decodable>(to endPoint: NewsApi, then handler: @escaping (Swift.Result<T, APIError>) -> Void) {
         router.request(endPoint) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let httpResponse = response as? HTTPURLResponse else {
@@ -50,8 +53,4 @@ struct NetworkManager {
             }
         }
     }
-}
-
-extension NetworkManager {
-    typealias FetchHandler<T> = (Swift.Result<T, APIError>) -> Void
 }

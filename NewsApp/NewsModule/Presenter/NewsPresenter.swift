@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIApplication
 
 protocol NewsViewProtocol: class {
     func succes()
@@ -18,9 +19,12 @@ protocol NewsViewPresenterProtocol: class {
     func getNews()
     var newsFeed: NewsFeed? { get set }
     func tapOnTheArticle(article: Article?)
+    func goToWeb(url: URL?)
+    func share(url: URL?) -> UIActivityViewController?
 }
 
 class NewsPresenter: NewsViewPresenterProtocol {
+    
     weak var view: NewsViewProtocol?
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol!
@@ -33,12 +37,25 @@ class NewsPresenter: NewsViewPresenterProtocol {
         getNews()
     }
     
+    func goToWeb(url: URL?) {
+        if let url = url {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func share(url: URL?) -> UIActivityViewController? {
+        if let url = url {
+            return UIActivityViewController(activityItems: [url], applicationActivities: [])
+        }
+        return nil
+    }
+    
     func tapOnTheArticle(article: Article?) {
         router?.showDetail(article: article)
     }
     
     func getNews() {
-        networkService.getNews { [weak self] result in
+        networkService.dataLoader(to: .country(letters: "ua", page: 2)) { [weak self] (result: Result<NewsFeed, APIError>) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {

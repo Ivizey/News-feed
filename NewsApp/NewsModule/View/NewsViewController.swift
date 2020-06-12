@@ -11,16 +11,9 @@ import UIKit
 class NewsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     var presenter: NewsViewPresenterProtocol!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
-        navigationItem.searchController = UISearchController(searchResultsController: nil)
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
 }
 
+// MARK: - UITableViewDataSource
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.newsFeed?.articles.count ?? 0
@@ -41,8 +34,16 @@ extension NewsViewController: UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.frame.origin.x = -cell.frame.width
+        UIView.animate(withDuration: 0.7, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .allowUserInteraction, animations: {
+            cell.frame.origin.x = 0
+        }, completion: nil)
+    }
 }
 
+// MARK: - UITableViewDelegate
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = presenter.newsFeed?.articles[indexPath.row]
@@ -50,20 +51,24 @@ extension NewsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let article = self.presenter.newsFeed?.articles[indexPath.row]
         let openBrowser = UIContextualAction(style: .normal, title: "Open in browser") {  (contextualAction, view, boolValue) in
-            print("Delete")
+            self.presenter.goToWeb(url: article?.url)
         }
         let share = UIContextualAction(style: .normal, title: "Share") {  (contextualAction, view, boolValue) in
-            print("Share")
+            if let vc = self.presenter.share(url: article?.url) {
+                self.present(vc, animated: true)
+            }
         }
         share.backgroundColor = .systemBlue
         return UISwipeActionsConfiguration(actions: [openBrowser, share])
     }
 }
 
+// MARK: - NewsViewProtocol
 extension NewsViewController: NewsViewProtocol {
     func succes() {
-        self.title = "Результатів: \(presenter.newsFeed?.totalResults ?? 0)"
+        title = "News feed: \(presenter.newsFeed?.totalResults ?? 0)"
         tableView.reloadData()
     }
     
