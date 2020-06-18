@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit.UIApplication
 
 protocol DetailViewProtocol: class {
     func setArticle(article: Article?)
@@ -25,6 +24,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol!
     var article: Article?
+    let safariService = SafariService()
     
     required init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?) {
         self.view = view
@@ -38,8 +38,6 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
     
     func goToWeb() {
-        if let url = article?.url {
-            UIApplication.shared.open(url)
-        }
+        safariService.showNewsInBrowser(url: article?.url)
     }
 }

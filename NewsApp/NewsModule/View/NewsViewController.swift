@@ -57,9 +57,7 @@ extension NewsViewController: UITableViewDelegate {
             self.presenter.goToWeb(url: article?.url)
         }
         let share = UIContextualAction(style: .normal, title: "Share") {  (contextualAction, view, boolValue) in
-            if let vc = self.presenter.share(url: article?.url) {
-                self.present(vc, animated: true)
-            }
+            self.presenter.share(url: article?.url)
         }
         share.backgroundColor = .systemBlue
         return UISwipeActionsConfiguration(actions: [openBrowser, share])

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit.UIApplication
 
 protocol NewsViewProtocol: class {
     func succes()
@@ -20,7 +19,7 @@ protocol NewsViewPresenterProtocol: class {
     var newsFeed: NewsFeed? { get set }
     func tapOnTheArticle(article: Article?)
     func goToWeb(url: URL?)
-    func share(url: URL?) -> UIActivityViewController?
+    func share(url: URL?)
 }
 
 class NewsPresenter: NewsViewPresenterProtocol {
@@ -29,6 +28,8 @@ class NewsPresenter: NewsViewPresenterProtocol {
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol!
     var newsFeed: NewsFeed?
+    let safariService = SafariService()
+    let activityService = ActivityViewService()
     
     required init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
@@ -38,14 +39,11 @@ class NewsPresenter: NewsViewPresenterProtocol {
     }
     
     func goToWeb(url: URL?) {
-        if let url = url {
-            UIApplication.shared.open(url)
-        }
+        safariService.showNewsInBrowser(url: url)
     }
     
-    func share(url: URL?) -> UIActivityViewController? {
-        guard let url = url else { return nil }
-        return UIActivityViewController(activityItems: [url], applicationActivities: [])
+    func share(url: URL?) {
+        activityService.shareNews(url: url)
     }
     
     func tapOnTheArticle(article: Article?) {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		47457B3423F210E700093A5E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47457B3323F210E700093A5E /* NewsCell.swift */; };
+		474696E1249B581F0086B9B0 /* SafariService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474696E0249B581F0086B9B0 /* SafariService.swift */; };
+		474696E3249B5FC60086B9B0 /* ActivityViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474696E2249B5FC60086B9B0 /* ActivityViewService.swift */; };
 		4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3C62365AC1500B5EB13 /* AppDelegate.swift */; };
 		4776A3C92365AC1500B5EB13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */; };
 		4776A3CB2365AC1500B5EB13 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3CA2365AC1500B5EB13 /* NewsViewController.swift */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		47457B3323F210E700093A5E /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		474696E0249B581F0086B9B0 /* SafariService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariService.swift; sourceTree = "<group>"; };
+		474696E2249B5FC60086B9B0 /* ActivityViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewService.swift; sourceTree = "<group>"; };
 		4776A3C32365AC1500B5EB13 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4776A3C62365AC1500B5EB13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 		4743960423F96875003C0571 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				474696E0249B581F0086B9B0 /* SafariService.swift */,
+				474696E2249B5FC60086B9B0 /* ActivityViewService.swift */,
 				47CF95312490F2110030DE2B /* EndPoint */,
 				47CF95342490F26B0030DE2B /* Manager */,
 				47CF95392490F31A0030DE2B /* Service */,
@@ -396,8 +402,10 @@
 				4776A3CB2365AC1500B5EB13 /* NewsViewController.swift in Sources */,
 				47CF953D2490F3510030DE2B /* HTTPMethod.swift in Sources */,
 				47CF952C2490F19B0030DE2B /* JSONParameterEncoder.swift in Sources */,
+				474696E3249B5FC60086B9B0 /* ActivityViewService.swift in Sources */,
 				47FE809B248D02BA002AB3C9 /* DetailPresenter.swift in Sources */,
 				47FE8092248CE96B002AB3C9 /* NewsPresenter.swift in Sources */,
+				474696E1249B581F0086B9B0 /* SafariService.swift in Sources */,
 				47CF95302490F1E60030DE2B /* URLParameterEncoder.swift in Sources */,
 				47FE80A4248D17E8002AB3C9 /* Router.swift in Sources */,
 				47CF95332490F21F0030DE2B /* EndPoint.swift in Sources */,
