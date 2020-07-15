@@ -13,7 +13,7 @@ protocol DetailViewProtocol: class {
 }
 
 protocol DetailViewPresenterProtocol: class {
-    init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?)
+    init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?, safariService: SafariServiceProtocol)
     func setArticle()
     func goToWeb()
 }
@@ -24,13 +24,14 @@ class DetailPresenter: DetailViewPresenterProtocol {
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol!
     var article: Article?
-    let safariService = SafariService()
+    let safariService: SafariServiceProtocol?
     
-    required init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?) {
+    required init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?, safariService: SafariServiceProtocol) {
         self.view = view
         self.networkService = networkService
         self.article = article
         self.router = router
+        self.safariService = safariService
     }
     
     public func setArticle() {
@@ -38,6 +39,6 @@ class DetailPresenter: DetailViewPresenterProtocol {
     }
     
     func goToWeb() {
-        safariService.showNewsInBrowser(url: article?.url)
+        safariService?.showNewsInBrowser(url: article?.url)
     }
 }
