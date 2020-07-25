@@ -17,7 +17,9 @@ class AsselderModelBuilder: AsselderBuilderProtocol {
     func createNewsModule(router: RouterProtocol) -> UIViewController {
         let view = NewsViewController()
         let networkService = NetworkManager()
-        let presenter = NewsPresenter(view: view, networkService: networkService, router: router)
+        let safariService = SafariService()
+        let activityService = ActivityViewService()
+        let presenter = NewsPresenter(view: view, networkService: networkService, router: router, safariService: safariService, activityService: activityService)
         view.presenter = presenter
         return view
     }
@@ -25,7 +27,8 @@ class AsselderModelBuilder: AsselderBuilderProtocol {
     func createDetailModule(article: Article?, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkManager()
-        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, article: article)
+        let safariService = SafariService()
+        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, article: article, safariService: safariService)
         view.presenter = presenter
         return view
     }

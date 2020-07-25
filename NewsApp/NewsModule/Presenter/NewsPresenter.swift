@@ -14,7 +14,7 @@ protocol NewsViewProtocol: class {
 }
 
 protocol NewsViewPresenterProtocol: class {
-    init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
+    init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol)
     func getNews()
     var newsFeed: NewsFeed? { get set }
     func tapOnTheArticle(article: Article?)
@@ -23,27 +23,28 @@ protocol NewsViewPresenterProtocol: class {
 }
 
 class NewsPresenter: NewsViewPresenterProtocol {
-
     weak var view: NewsViewProtocol?
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol!
     var newsFeed: NewsFeed?
-    let safariService = SafariService()
-    let activityService = ActivityViewService()
+    let safariService: SafariServiceProtocol?
+    let activityService: ActivityViewServiceProtocol?
     
-    required init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
+    required init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol) {
         self.view = view
         self.networkService = networkService
         self.router = router
+        self.safariService = safariService
+        self.activityService = activityService
         getNews()
     }
     
     func goToWeb(url: URL?) {
-        safariService.showNewsInBrowser(url: url)
+        safariService?.showNewsInBrowser(url: url)
     }
     
     func share(url: URL?) {
-        activityService.shareNews(url: url)
+        activityService?.shareNews(url: url)
     }
     
     func tapOnTheArticle(article: Article?) {
