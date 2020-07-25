@@ -108,6 +108,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4712E15224BF62D3006C5D0F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4776A3C62365AC1500B5EB13 /* AppDelegate.swift */,
+				4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */,
+				4776A3D42365AC1600B5EB13 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4712E15324BF632D006C5D0F /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		4712E15424BF633B006C5D0F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				47FE80A3248D17E8002AB3C9 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4712E15524BF638D006C5D0F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4776A3CC2365AC1500B5EB13 /* Main.storyboard */,
+				4776A3D12365AC1600B5EB13 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4712E15624BF63AB006C5D0F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4776A3CF2365AC1600B5EB13 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4743960023F9680F003C0571 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,17 +203,14 @@
 		4776A3C52365AC1500B5EB13 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				4776A3C62365AC1500B5EB13 /* AppDelegate.swift */,
-				4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */,
-				47FE8098248CED8D002AB3C9 /* ModuleBuilder.swift */,
-				47FE80A3248D17E8002AB3C9 /* Router.swift */,
+				4712E15224BF62D3006C5D0F /* Application */,
+				4712E15324BF632D006C5D0F /* Builder */,
+				4712E15424BF633B006C5D0F /* Router */,
 				47FE809D248D0577002AB3C9 /* DetailModule */,
 				47FE8094248CEBCC002AB3C9 /* NewsModule */,
 				4743960423F96875003C0571 /* ServiceLayer */,
-				4776A3CC2365AC1500B5EB13 /* Main.storyboard */,
-				4776A3CF2365AC1600B5EB13 /* Assets.xcassets */,
-				4776A3D12365AC1600B5EB13 /* LaunchScreen.storyboard */,
-				4776A3D42365AC1600B5EB13 /* Info.plist */,
+				4712E15524BF638D006C5D0F /* Storyboards */,
+				4712E15624BF63AB006C5D0F /* Resources */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -576,7 +616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z67C29K2Q6;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,7 +634,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z67C29K2Q6;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
