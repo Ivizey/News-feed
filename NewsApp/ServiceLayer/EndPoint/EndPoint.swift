@@ -49,14 +49,10 @@ extension NewsApi: EndPointType {
     var task: HTTPTask {
         switch self {
         case .country(let letters, let page):
-            return .requestParameters(bodyParameters: nil,
-                                      urlParameters: ["country": letters,
-                                                      "page": page,
-                                                      "apiKey":NetworkManager.newsAPIKey])
-        case .search(let q):
-            return .requestParameters(bodyParameters: nil,
-                                      urlParameters: ["q": q,
-                                                      "apiKey":NetworkManager.newsAPIKey])
+            return .requestParameters(bodyParameters: nil, urlParameters: ["country": letters, "page": page,
+                                                                           "apiKey":NetworkManager.newsAPIKey])
+        case .search(let q): return .requestParameters(bodyParameters: nil, urlParameters: ["q": q,
+                                                                            "apiKey":NetworkManager.newsAPIKey])
             
         default:
             return .request

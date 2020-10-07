@@ -15,7 +15,7 @@ protocol AsselderBuilderProtocol {
 
 class AsselderModelBuilder: AsselderBuilderProtocol {    
     func createNewsModule(router: RouterProtocol) -> UIViewController {
-        let view = NewsViewController()
+        let view = NewsView()
         let networkService = NetworkManager()
         let safariService = SafariService()
         let activityService = ActivityViewService()
