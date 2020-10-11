@@ -38,7 +38,7 @@ class NewsPresenter: NewsViewPresenterProtocol {
         self.router = router
         self.safariService = safariService
         self.activityService = activityService
-        getNews(index: 0)
+        getNews(index: 10)
     }
     
     func goToWeb(url: URL?) {
@@ -63,16 +63,9 @@ class NewsPresenter: NewsViewPresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let newsFeed):
-//                    let articles = newsFeed.articles
-//                    if index == 0 {
-                        self.newsFeed? = newsFeed
-//                    } else {
-//                        articles.forEach {
-//                            self.newsFeed?.articles.append($0)
-//                        }
-//                    }
+                    self.newsFeed = newsFeed
                     self.view?.succes()
-                    self.nextIndex += 1
+                    self.nextIndex += 10
                 case .failure(let error):
                     self.view?.failure(error: error)
                 }

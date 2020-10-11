@@ -25,7 +25,7 @@ extension NewsView: UITableViewDataSource {
         if indexPath.section == tableView.numberOfSections - 1 &&
             indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.presenter.fetchNextNewsList()
+                self.presenter.fetchNextNewsList()
             }
         }
     }

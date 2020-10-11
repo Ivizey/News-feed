@@ -208,8 +208,6 @@
 		4743960423F96875003C0571 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				474696E0249B581F0086B9B0 /* SafariService.swift */,
-				474696E2249B5FC60086B9B0 /* ActivityViewService.swift */,
 				47CF95312490F2110030DE2B /* EndPoint */,
 				47CF95342490F26B0030DE2B /* Manager */,
 				47CF95392490F31A0030DE2B /* Service */,
@@ -251,6 +249,8 @@
 				47B0D451252C3DF600AF9838 /* Extensions */,
 				4712E15524BF638D006C5D0F /* Storyboards */,
 				4712E15624BF63AB006C5D0F /* Resources */,
+				474696E0249B581F0086B9B0 /* SafariService.swift */,
+				474696E2249B5FC60086B9B0 /* ActivityViewService.swift */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
