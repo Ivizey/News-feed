@@ -15,9 +15,10 @@ protocol NewsViewProtocol: class {
 
 protocol NewsViewPresenterProtocol: class {
     init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol)
-    func getNews()
+    func getNews(index: Int)
     var newsFeed: NewsFeed? { get set }
     func tapOnTheArticle(article: Article?)
+    func fetchNextNewsList()
     func goToWeb(url: URL?)
     func share(url: URL?)
 }
@@ -29,6 +30,7 @@ class NewsPresenter: NewsViewPresenterProtocol {
     var newsFeed: NewsFeed?
     let safariService: SafariServiceProtocol?
     let activityService: ActivityViewServiceProtocol?
+    var nextIndex = 0
     
     required init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol) {
         self.view = view
@@ -36,7 +38,7 @@ class NewsPresenter: NewsViewPresenterProtocol {
         self.router = router
         self.safariService = safariService
         self.activityService = activityService
-        getNews()
+        getNews(index: 0)
     }
     
     func goToWeb(url: URL?) {
@@ -51,14 +53,26 @@ class NewsPresenter: NewsViewPresenterProtocol {
         router?.showDetail(article: article)
     }
     
-    func getNews() {
-        networkService.dataLoader(to: .country(country: "ua", page: 1)) { [weak self] (result: Result<NewsFeed, APIError>) in
+    func fetchNextNewsList() {
+        getNews(index: nextIndex)
+    }
+    
+    func getNews(index: Int) {
+        networkService.dataLoader(to: .country(country: "ua", page: index)) { [weak self] (result: Result<NewsFeed, APIError>) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let newsFeed):
-                    self.newsFeed = newsFeed
+//                    let articles = newsFeed.articles
+//                    if index == 0 {
+                        self.newsFeed? = newsFeed
+//                    } else {
+//                        articles.forEach {
+//                            self.newsFeed?.articles.append($0)
+//                        }
+//                    }
                     self.view?.succes()
+                    self.nextIndex += 1
                 case .failure(let error):
                     self.view?.failure(error: error)
                 }

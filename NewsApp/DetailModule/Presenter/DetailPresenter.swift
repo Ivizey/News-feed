@@ -14,6 +14,7 @@ protocol DetailViewProtocol: class {
 
 protocol DetailViewPresenterProtocol: class {
     init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?, safariService: SafariServiceProtocol)
+    func setDate(_ publishedAt: String?) -> String
     func setArticle()
     func goToWeb()
 }
@@ -32,6 +33,14 @@ class DetailPresenter: DetailViewPresenterProtocol {
         self.article = article
         self.router = router
         self.safariService = safariService
+    }
+    
+    func setDate(_ publishedAt: String?) -> String {
+        guard let publishedAt = publishedAt else { return "" }
+        let formatter = DateFormatter()
+        let date: Date = ISO8601DateFormatter().date(from: publishedAt) ?? Date()
+        formatter.dateFormat = "MMM d, h:mm a"
+        return formatter.string(from: date)
     }
     
     public func setArticle() {

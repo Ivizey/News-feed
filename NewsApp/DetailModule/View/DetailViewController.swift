@@ -34,7 +34,7 @@ extension DetailViewController: DetailViewProtocol {
         titleLabel.text = article?.title
         descriptionLabel.text = article?.description
         authorLabel.text = article?.author
-        publishedLabel.text = article?.publishedAt
+        publishedLabel.text = presenter.setDate(article?.publishedAt)
         sourceLabel.text = article?.source.name
         image.load(url: article?.urlToImage)
     }

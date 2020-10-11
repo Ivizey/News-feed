@@ -21,12 +21,14 @@ extension NewsView: UITableViewDataSource {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.frame.origin.x = -cell.frame.width
-//        UIView.animate(withDuration: 0.7, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .allowUserInteraction, animations: {
-//            cell.frame.origin.x = 0
-//        }, completion: nil)
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == tableView.numberOfSections - 1 &&
+            indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                self.presenter.fetchNextNewsList()
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -34,18 +36,6 @@ extension NewsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = presenter.newsFeed?.articles[indexPath.row]
         presenter.tapOnTheArticle(article: article)
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let article = self.presenter.newsFeed?.articles[indexPath.row]
-        let openBrowser = UIContextualAction(style: .normal, title: "Open in browser") {  (contextualAction, view, boolValue) in
-            self.presenter.goToWeb(url: article?.url)
-        }
-        let share = UIContextualAction(style: .normal, title: "Share") {  (contextualAction, view, boolValue) in
-            self.presenter.share(url: article?.url)
-        }
-        share.backgroundColor = .systemBlue
-        return UISwipeActionsConfiguration(actions: [openBrowser, share])
     }
 }
 
