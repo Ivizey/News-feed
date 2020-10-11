@@ -2,26 +2,25 @@
 //  NewsCell.swift
 //  NewsApp
 //
-//  Created by Pavel Bondar on 11.02.2020.
+//  Created by Pavel Bondar on 06.10.2020.
 //  Copyright © 2020 Pavel Bondar. All rights reserved.
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCell: UITableViewCell {
-    @IBOutlet private weak var imageNews: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var imageArticle: UIImageView!
+    @IBOutlet private weak var titleLable: UILabel!
     
-    func setImage(image: UIImage?) {
-        imageNews.image = image ?? UIImage()
-    }
-    
-    func setTitle(title: String?) {
-        titleLabel.text = title ?? ""
-    }
-    
-    func setDescription(description: String?) {
-        descriptionLabel.text = description ?? ""
+    func setupCell(image: URL?, title: String?) {
+        imageArticle.sd_setImage(with: image) { (image, error, cache, urls) in
+            if (error != nil) {
+                self.imageArticle.image = UIImage()
+            } else {
+                self.imageArticle.image = image
+            }
+        }
+        titleLable.text = title
     }
 }
