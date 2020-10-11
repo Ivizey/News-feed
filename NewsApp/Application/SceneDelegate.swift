@@ -17,10 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
+        let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         let navigationController = UINavigationController()
-        navigationController.navigationBar.barTintColor = .white
+        navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.1912669241, green: 0.2193436921, blue: 0.2402234972, alpha: 1)
+        navigationController.navigationBar.backgroundColor = #colorLiteral(red: 0.1912669241, green: 0.2193436921, blue: 0.2402234972, alpha: 1)
+        navigationController.navigationBar.tintColor = .white
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationItem.largeTitleDisplayMode = .always
+        navigationController.navigationBar.largeTitleTextAttributes = titleAttributes
+        navigationController.navigationBar.titleTextAttributes = titleAttributes
         
         let assemblyBuilder = AsselderModelBuilder()
         let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)

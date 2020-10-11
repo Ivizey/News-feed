@@ -42,7 +42,17 @@ extension NewsView: UITableViewDelegate {
 // MARK: - NewsViewProtocol
 extension NewsView: NewsViewProtocol {
     func succes() {
-        title = "News feed: \(presenter.newsFeed?.totalResults ?? 0)"
+        let menu = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"),
+                                   style: .plain,
+                                   target: self,
+                                   action: nil)
+        
+        navigationItem.rightBarButtonItem = menu
+        
+        title = "General".uppercased()
+        let header = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
+        header.setStatus(status: "Results: \(presenter.newsFeed?.totalResults ?? 0)")
+        tableView.tableHeaderView = header
         tableView.reloadData()
     }
     

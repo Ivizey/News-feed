@@ -10,13 +10,13 @@ import UIKit
 
 class NewsView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    private var timer: Timer?
     var presenter: NewsViewPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // MARK: - register cell
         let newsCell = UINib(nibName: "NewsCell", bundle: nil)
         tableView.register(newsCell, forCellReuseIdentifier: "NewsCell")
+        navigationItem.searchController = UISearchController()
     }
 }
