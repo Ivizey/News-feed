@@ -11,6 +11,7 @@ import UIKit.UIViewController
 protocol AsselderBuilderProtocol {
     func createNewsModule(router: RouterProtocol) -> UIViewController
     func createDetailModule(article: Article?, router: RouterProtocol) -> UIViewController
+    func createSettingsModule() -> UIViewController
 }
 
 class AsselderModelBuilder: AsselderBuilderProtocol {    
@@ -31,5 +32,9 @@ class AsselderModelBuilder: AsselderBuilderProtocol {
         let presenter = DetailPresenter(view: view, networkService: networkService, router: router, article: article, safariService: safariService)
         view.presenter = presenter
         return view
+    }
+    
+    func createSettingsModule() -> UIViewController {
+        return SettingsView()
     }
 }

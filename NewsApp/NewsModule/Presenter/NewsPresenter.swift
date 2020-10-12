@@ -18,6 +18,7 @@ protocol NewsViewPresenterProtocol: class {
     func getNews(index: Int)
     var newsFeed: NewsFeed? { get set }
     func tapOnTheArticle(article: Article?)
+    func goToSettings()
     func fetchNextNewsList()
     func goToWeb(url: URL?)
     func share(url: URL?)
@@ -51,6 +52,10 @@ class NewsPresenter: NewsViewPresenterProtocol {
     
     func tapOnTheArticle(article: Article?) {
         router?.showDetail(article: article)
+    }
+    
+    func goToSettings() {
+        router?.showSettings()
     }
     
     func fetchNextNewsList() {

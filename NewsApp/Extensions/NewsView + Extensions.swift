@@ -16,9 +16,13 @@ extension NewsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let article = presenter.newsFeed?.articles[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-        cell.setupCell(image: article?.urlToImage, title: article?.title)
-        return cell
+        if let article = article {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+            cell.setupCell(article: article)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -45,18 +49,22 @@ extension NewsView: NewsViewProtocol {
         let menu = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"),
                                    style: .plain,
                                    target: self,
-                                   action: nil)
+                                   action: #selector(goToSettings))
         
         navigationItem.rightBarButtonItem = menu
         
         title = "General".uppercased()
         let header = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
-        header.setStatus(status: "Results: \(presenter.newsFeed?.totalResults ?? 0)")
+        header.setStatus(status: "Articles: \(presenter.newsFeed?.totalResults ?? 0)")
         tableView.tableHeaderView = header
         tableView.reloadData()
     }
     
     func failure(error: Error) {
         print("Error: \(error.localizedDescription)")
+    }
+    
+    @objc func goToSettings() {
+        presenter.goToSettings()
     }
 }
