@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsView" customModule="NewsApp" customModuleProvider="target">
+            <connections>
+                <outlet property="countryPicker" destination="Wrv-d9-A6s" id="66O-Bw-sOJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAu-db-0hq">
+                    <rect key="frame" x="20" y="54" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" red="0.19126692410000001" green="0.21934369209999999" blue="0.2402234972" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wrv-d9-A6s">
+                    <rect key="frame" x="0.0" y="85" width="414" height="216"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gbQ-kw-MwG"/>
+                        <outlet property="delegate" destination="-1" id="Qf0-NF-I2U"/>
+                    </connections>
+                </pickerView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAo-pT-eSY">
+                    <rect key="frame" x="20" y="311" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" red="0.19126692410000001" green="0.21934369209999999" blue="0.2402234972" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odb-Hr-evb">
+                    <rect key="frame" x="0.0" y="342" width="414" height="216"/>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aId-U0-59D">
+                    <rect key="frame" x="20" y="568" width="374" height="50"/>
+                    <color key="backgroundColor" red="0.19126692410000001" green="0.21934369209999999" blue="0.2402234972" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="P9I-sf-Rik"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="CONFIRM">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aId-U0-59D" secondAttribute="trailing" constant="20" id="4WD-FX-IGS"/>
+                <constraint firstItem="aId-U0-59D" firstAttribute="top" secondItem="Odb-Hr-evb" secondAttribute="bottom" constant="10" id="63P-lr-A4A"/>
+                <constraint firstItem="aId-U0-59D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7Ql-2j-V24"/>
+                <constraint firstItem="Wrv-d9-A6s" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="AgW-eZ-BGr"/>
+                <constraint firstItem="Wrv-d9-A6s" firstAttribute="top" secondItem="mAu-db-0hq" secondAttribute="bottom" constant="10" id="Ier-gP-0vP"/>
+                <constraint firstItem="VAo-pT-eSY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="PZr-Gt-YxN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mAu-db-0hq" secondAttribute="trailing" constant="20" id="Q70-6R-guW"/>
+                <constraint firstItem="Odb-Hr-evb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qax-g7-8C9"/>
+                <constraint firstItem="VAo-pT-eSY" firstAttribute="top" secondItem="Wrv-d9-A6s" secondAttribute="bottom" constant="10" id="R6E-md-2Pe"/>
+                <constraint firstItem="Odb-Hr-evb" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SvP-dZ-zKb"/>
+                <constraint firstItem="Odb-Hr-evb" firstAttribute="top" secondItem="VAo-pT-eSY" secondAttribute="bottom" constant="10" id="VHc-F8-3wc"/>
+                <constraint firstItem="mAu-db-0hq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="Wpc-xq-sb2"/>
+                <constraint firstItem="mAu-db-0hq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gEA-nz-5Xz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VAo-pT-eSY" secondAttribute="trailing" constant="20" id="myv-bA-gDs"/>
+                <constraint firstItem="Wrv-d9-A6s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zfm-SJ-EWO"/>
+            </constraints>
+            <point key="canvasLocation" x="71" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
