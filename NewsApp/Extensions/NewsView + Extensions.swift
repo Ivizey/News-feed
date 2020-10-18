@@ -16,16 +16,20 @@ extension NewsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let article = presenter.newsFeed?.articles[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-        cell.setupCell(image: article?.urlToImage, title: article?.title)
-        return cell
+        if let article = article {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+            cell.setupCell(article: article)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == tableView.numberOfSections - 1 &&
             indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.presenter.fetchNextNewsList()
+                self.presenter.fetchNextNewsList()
             }
         }
     }
@@ -42,11 +46,26 @@ extension NewsView: UITableViewDelegate {
 // MARK: - NewsViewProtocol
 extension NewsView: NewsViewProtocol {
     func succes() {
-        title = "News feed: \(presenter.newsFeed?.totalResults ?? 0)"
+        let menu = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"),
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(goToSettings))
+        
+        navigationItem.rightBarButtonItem = menu
+        
+        title = presenter.title?.uppercased()
+        let header = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
+        header.setStatus(status: "Articles: \(presenter.newsFeed?.totalResults ?? 0)",
+                         country: presenter.actualCountry?.uppercased() ?? "")
+        tableView.tableHeaderView = header
         tableView.reloadData()
     }
     
     func failure(error: Error) {
         print("Error: \(error.localizedDescription)")
+    }
+    
+    @objc func goToSettings() {
+        presenter.goToSettings()
     }
 }

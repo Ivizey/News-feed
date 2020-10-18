@@ -13,14 +13,15 @@ class NewsCell: UITableViewCell {
     @IBOutlet private weak var imageArticle: UIImageView!
     @IBOutlet private weak var titleLable: UILabel!
     
-    func setupCell(image: URL?, title: String?) {
-        imageArticle.sd_setImage(with: image) { (image, error, cache, urls) in
+    func setupCell(article: Article) {
+        imageArticle.sd_setImage(with: article.urlToImage) { (image, error, cache, urls) in
             if (error != nil) {
-                self.imageArticle.image = UIImage()
+                let source = article.source.name?.prefix(1).lowercased()
+                self.imageArticle.image = UIImage(systemName: "\(source ?? "x").square")
             } else {
                 self.imageArticle.image = image
             }
         }
-        titleLable.text = title
+        titleLable.text = article.title
     }
 }
