@@ -37,6 +37,9 @@
                     <state key="normal" title="CONFIRM">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="confirmButton:" destination="-1" eventType="touchUpInside" id="5YU-mK-wT3"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="114" translatesAutoresizingMaskIntoConstraints="NO" id="b18-gL-KKU">
                     <rect key="frame" x="0.0" y="54" width="414" height="24"/>

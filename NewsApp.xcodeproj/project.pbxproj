@@ -10,6 +10,7 @@
 		12A5DC0BDB1F544BE8D73EDC /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C95FD427AFD775AFE63526 /* Pods_NewsApp.framework */; };
 		474696E1249B581F0086B9B0 /* SafariService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474696E0249B581F0086B9B0 /* SafariService.swift */; };
 		474696E3249B5FC60086B9B0 /* ActivityViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474696E2249B5FC60086B9B0 /* ActivityViewService.swift */; };
+		4751C9882535BEA5009B3FBB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751C9872535BEA5009B3FBB /* Settings.swift */; };
 		4776A3C72365AC1500B5EB13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3C62365AC1500B5EB13 /* AppDelegate.swift */; };
 		4776A3C92365AC1500B5EB13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */; };
 		4776A3CB2365AC1500B5EB13 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3CA2365AC1500B5EB13 /* NewsView.swift */; };
@@ -20,6 +21,7 @@
 		4776A3DE2365AF9600B5EB13 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */; };
 		477BCAFE25347FAC00261518 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BCAFC25347FAC00261518 /* SettingsView.swift */; };
 		477BCAFF25347FAC00261518 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477BCAFD25347FAC00261518 /* SettingsView.xib */; };
+		477BCB052534A68400261518 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BCB042534A68400261518 /* SettingsPresenter.swift */; };
 		47B0D453252C3E4F00AF9838 /* NewsView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D452252C3E4F00AF9838 /* NewsView + Extensions.swift */; };
 		47B0D460252C3F9500AF9838 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D45E252C3F9500AF9838 /* NewsCell.swift */; };
 		47B0D461252C3F9500AF9838 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D45F252C3F9500AF9838 /* NewsCell.xib */; };
@@ -63,6 +65,7 @@
 		012D20EEF5262C2ADEAA09E5 /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		474696E0249B581F0086B9B0 /* SafariService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariService.swift; sourceTree = "<group>"; };
 		474696E2249B5FC60086B9B0 /* ActivityViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewService.swift; sourceTree = "<group>"; };
+		4751C9872535BEA5009B3FBB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4776A3C32365AC1500B5EB13 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4776A3C62365AC1500B5EB13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4776A3C82365AC1500B5EB13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		4776A3DD2365AF9600B5EB13 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		477BCAFC25347FAC00261518 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		477BCAFD25347FAC00261518 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		477BCB042534A68400261518 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		47B0D452252C3E4F00AF9838 /* NewsView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsView + Extensions.swift"; sourceTree = "<group>"; };
 		47B0D45E252C3F9500AF9838 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		47B0D45F252C3F9500AF9838 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -225,6 +229,14 @@
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
+		4751C9852535BE8A009B3FBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4751C9872535BEA5009B3FBB /* Settings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4776A3BA2365AC1500B5EB13 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +289,7 @@
 		477BCAF925347F5900261518 /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
+				4751C9852535BE8A009B3FBB /* Model */,
 				477BCAFA25347F6D00261518 /* View */,
 				477BCAFB25347F7900261518 /* Presenter */,
 			);
@@ -295,6 +308,7 @@
 		477BCAFB25347F7900261518 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				477BCB042534A68400261518 /* SettingsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -591,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4751C9882535BEA5009B3FBB /* Settings.swift in Sources */,
 				47CF953F2490F36F0030DE2B /* HTTPTask.swift in Sources */,
 				47CF95412490F3920030DE2B /* NetworkRouterProtocol.swift in Sources */,
 				47CF95382490F2DA0030DE2B /* NetworkManager.swift in Sources */,
@@ -618,6 +633,7 @@
 				4776A3C92365AC1500B5EB13 /* SceneDelegate.swift in Sources */,
 				47B0D460252C3F9500AF9838 /* NewsCell.swift in Sources */,
 				47B0D49725333E2E00AF9838 /* HeaderView.swift in Sources */,
+				477BCB052534A68400261518 /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

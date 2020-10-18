@@ -17,6 +17,7 @@ protocol RouterProtocol: RouterMain {
     func initialViewController()
     func showDetail(article: Article?)
     func showSettings()
+    func popToRoot()
 }
 
 class Router: RouterProtocol {
@@ -44,8 +45,14 @@ class Router: RouterProtocol {
     
     func showSettings() {
         if let navigationController = navigationController {
-            guard let settingsViewController = assemblyBuilder?.createSettingsModule() else { return }
+            guard let settingsViewController = assemblyBuilder?.createSettingsModule(router: self) else { return }
             navigationController.pushViewController(settingsViewController, animated: true)
+        }
+    }
+    
+    func popToRoot() {
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
         }
     }
 }

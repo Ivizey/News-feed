@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="NewsApp" customModuleProvider="target">
             <connections>
+                <outlet property="countryLabel" destination="pDJ-zx-wUV" id="d1V-0f-oRg"/>
                 <outlet property="statusLabel" destination="MKh-fQ-ILR" id="zlr-Tp-4um"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mg8-v9-b7w"/>
             </connections>

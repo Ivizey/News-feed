@@ -11,6 +11,7 @@ import UIKit
 class HeaderView: UIView {
     @IBOutlet private var view: UIView!
     @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var countryLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +31,8 @@ class HeaderView: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    func setStatus(status: String) {
+    func setStatus(status: String, country: String) {
         statusLabel.text = status
+        countryLabel.text = country
     }
 }

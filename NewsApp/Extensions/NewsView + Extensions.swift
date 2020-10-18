@@ -53,9 +53,10 @@ extension NewsView: NewsViewProtocol {
         
         navigationItem.rightBarButtonItem = menu
         
-        title = "General".uppercased()
+        title = presenter.title?.uppercased()
         let header = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
-        header.setStatus(status: "Articles: \(presenter.newsFeed?.totalResults ?? 0)")
+        header.setStatus(status: "Articles: \(presenter.newsFeed?.totalResults ?? 0)",
+                         country: presenter.actualCountry?.uppercased() ?? "")
         tableView.tableHeaderView = header
         tableView.reloadData()
     }

@@ -10,12 +10,24 @@ import UIKit
 
 class SettingsView: UIViewController {
     @IBOutlet private weak var countryPicker: UIPickerView!
-    let country = ["ae 🇦🇪", "ar 🇦🇷", "at 🏴󠁷󠁳󠁡󠁴󠁿", "au 🇦🇺", "be 🇧🇪", "bg 🇧🇬", "br 🇧🇷", "ca 🇨🇦", "ch 🇨🇭", "cn 🇨🇳", "co 🇨🇴", "cu 🇨🇺", "cz 🇨🇿", "de 🇩🇪", "eg 🇪🇬", "fr 🇫🇷", "gb 🇬🇧", "gr 🇬🇷", "hk 🇭🇰", "hu 🇭🇺", "id 🇮🇩", "ie 🇮🇪", "il 🇮🇱", "in 🇮🇳", "it 🇮🇹", "jp 🇯🇵", "kr 🇰🇷", "lt 🇱🇹", "lv 🇱🇻", "ma 🇲🇦", "mx 🇲🇽", "my 🇲🇾", "ng 🇳🇬", "nl 🇳🇱", "no 🇳🇴", "nz 🇳🇿", "ph 🇵🇭", "pl 🇵🇱", "pt 🇵🇹", "ro 🇷🇴", "rs 🇷🇸", "ru 🇷🇺", "sa 🇸🇦", "se 🇸🇪", "sg 🇸🇬", "si 🇸🇮", "sk 🇸🇰", "th 🇹🇭", "tr 🇹🇷", "tw 🇹🇼", "ua 🇺🇦", "us 🇺🇸", "ve 🇻🇪", "za 🇿🇦"]
-    let category = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
+    var presenter: SettingsViewPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let country = String(UserDefaults.standard.string(forKey: "Country") ?? "ua")
+        let category = String(UserDefaults.standard.string(forKey: "Category") ?? "general")
+        
+        countryPicker.selectRow(presenter.country.firstIndex(of: country) ?? 0, inComponent: 0, animated: true)
+        countryPicker.selectRow(presenter.category.firstIndex(of: category) ?? 0, inComponent: 1, animated: true)
+    }
+    
+    @IBAction private func confirmButton(_ sender: UIButton) {
+        presenter.goToPopView()
     }
 }
 
@@ -26,17 +38,25 @@ extension SettingsView: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-            return country.count
+            return presenter.country.count
         } else {
-            return category.count
+            return presenter.category.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
-            return country[row].uppercased()
+            return presenter.country[row].uppercased()
         } else {
-            return category[row]
+            return presenter.category[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            presenter.saveCountry(row)
+        } else {
+            presenter.saveCategory(row)
         }
     }
 }
