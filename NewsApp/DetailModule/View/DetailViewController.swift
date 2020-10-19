@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
@@ -36,6 +37,6 @@ extension DetailViewController: DetailViewProtocol {
         authorLabel.text = article?.author
         publishedLabel.text = presenter.setDate(article?.publishedAt)
         sourceLabel.text = article?.source.name
-        image.load(url: article?.urlToImage)
+        image.sd_setImage(with: article?.urlToImage, completed: nil)
     }
 }

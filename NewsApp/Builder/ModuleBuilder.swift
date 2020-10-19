@@ -20,7 +20,8 @@ class AsselderModelBuilder: AsselderBuilderProtocol {
         let networkService = NetworkManager()
         let safariService = SafariService()
         let activityService = ActivityViewService()
-        let presenter = NewsPresenter(view: view, networkService: networkService, router: router, safariService: safariService, activityService: activityService)
+        let userDefaults = UserDefaults.standard
+        let presenter = NewsPresenter(view: view, networkService: networkService, router: router, userDefaults: userDefaults, safariService: safariService, activityService: activityService)
         view.presenter = presenter
         return view
     }

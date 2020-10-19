@@ -14,7 +14,12 @@ protocol NewsViewProtocol: class {
 }
 
 protocol NewsViewPresenterProtocol: class {
-    init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol)
+    init(view: NewsViewProtocol,
+         networkService: NetworkServiceProtocol,
+         router: RouterProtocol,
+         userDefaults: UserDefaults,
+         safariService: SafariServiceProtocol,
+         activityService: ActivityViewServiceProtocol)
     func getNews(country: String, category: String, index: Int)
     func searchNews(search: String)
     var newsFeed: NewsFeed? { get set }
@@ -31,6 +36,7 @@ protocol NewsViewPresenterProtocol: class {
 class NewsPresenter: NewsViewPresenterProtocol {
     weak var view: NewsViewProtocol?
     var router: RouterProtocol?
+    var userDefaults: UserDefaults!
     var title: String?
     var actualCountry: String?
     var nextIndex = 0
@@ -39,10 +45,16 @@ class NewsPresenter: NewsViewPresenterProtocol {
     let safariService: SafariServiceProtocol?
     let activityService: ActivityViewServiceProtocol?
     
-    required init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol) {
+    required init(view: NewsViewProtocol,
+                  networkService: NetworkServiceProtocol,
+                  router: RouterProtocol,
+                  userDefaults: UserDefaults,
+                  safariService: SafariServiceProtocol,
+                  activityService: ActivityViewServiceProtocol) {
         self.view = view
         self.networkService = networkService
         self.router = router
+        self.userDefaults = userDefaults
         self.safariService = safariService
         self.activityService = activityService
         updateNewsFeed()
@@ -51,8 +63,8 @@ class NewsPresenter: NewsViewPresenterProtocol {
     func updateNewsFeed() {
         newsFeed = nil
         nextIndex = 10
-        let country = String(UserDefaults.standard.string(forKey: "Country") ?? "ua")
-        let category = String(UserDefaults.standard.string(forKey: "Category") ?? "general")
+        let country = userDefaults.string(forKey: "Country") ?? "ua"
+        let category = userDefaults.string(forKey: "Category") ?? "general"
         self.title = category
         self.actualCountry = country
         getNews(country: String(country.prefix(2)), category: category, index: 10)
@@ -75,9 +87,9 @@ class NewsPresenter: NewsViewPresenterProtocol {
     }
     
     func fetchNextNewsList() {
-        let country = String(UserDefaults.standard.string(forKey: "Country")?.prefix(2) ?? "ua")
-        let category = String(UserDefaults.standard.string(forKey: "Category") ?? "general")
-        getNews(country: country, category: category, index: nextIndex)
+        let country = userDefaults.string(forKey: "Country")?.prefix(2) ?? "ua"
+        let category = userDefaults.string(forKey: "Category") ?? "general"
+        getNews(country: String(country), category: category, index: nextIndex)
     }
     
     func getNews(country: String, category: String, index: Int) {
