@@ -16,17 +16,17 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var publishedLabel: UILabel!
     @IBOutlet private weak var sourceLabel: UILabel!
-    
     var presenter: DetailViewPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
+        // MARK: - display article
         presenter.setArticle()
     }
     
     @IBAction func didTapButton(_ sender: UIButton) {
-        presenter.goToWeb()
+        // MARK: - open the article in the safari browser
+        presenter.goToSafari()
     }
 }
 
@@ -37,6 +37,6 @@ extension DetailViewController: DetailViewProtocol {
         authorLabel.text = article?.author
         publishedLabel.text = presenter.setDate(article?.publishedAt)
         sourceLabel.text = article?.source.name
-        image.sd_setImage(with: article?.urlToImage, completed: nil)
+        image.sd_setImage(with: article?.urlToImage)
     }
 }

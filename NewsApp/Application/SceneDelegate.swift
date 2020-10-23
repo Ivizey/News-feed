@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         let navigationController = UINavigationController()
         navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.1912669241, green: 0.2193436921, blue: 0.2402234972, alpha: 1)
         navigationController.navigationBar.backgroundColor = #colorLiteral(red: 0.1912669241, green: 0.2193436921, blue: 0.2402234972, alpha: 1)

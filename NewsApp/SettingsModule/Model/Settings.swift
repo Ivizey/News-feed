@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Settings {
-    let country: String
-    let category: String
+class Settings {
+    var country: String
+    var category: String
+    
+    init(country: String, category: String) {
+        self.country = country
+        self.category = category
+    }
 }

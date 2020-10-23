@@ -11,35 +11,28 @@ import UIKit
 class NewsView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var presenter: NewsViewPresenterProtocol!
-    let search = UISearchController(searchResultsController: nil)
+    let search = UISearchController.searchBarSetup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: - register cell
         let newsCell = UINib(nibName: "NewsCell", bundle: nil)
         tableView.register(newsCell, forCellReuseIdentifier: "NewsCell")
-        
+        // MARK: - create right bar button
+        let menu = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(goToSettings))
+        navigationItem.rightBarButtonItem = menu
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        // MARK: - Setup search controller
         search.searchBar.delegate = self
-        search.searchBar.showsBookmarkButton = true
-        search.searchBar.setImage(UIImage(systemName: "magnifyingglass"), for: .bookmark, state: .normal)
-        search.searchBar.searchTextField.clearButtonMode = .always
-        search.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = search
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateList),
-                                               name: NSNotification.Name("tapApplyAction"), object: nil)
-        
-        
+        // MARK: - Include notification center
+        NotificationCenter.default.addObserver(self, selector: #selector(updateList), name: .applyAction, object: nil)
     }
     
     @objc private func updateList() {
         presenter.updateNewsFeed()
-    }
-}
-
-extension NewsView: UISearchBarDelegate {
-    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = search.searchBar.text else { return }
-        presenter.searchNews(search: text)
     }
 }
