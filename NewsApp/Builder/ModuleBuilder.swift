@@ -7,28 +7,34 @@
 //
 
 import UIKit.UIViewController
-
+// MARK: - AsselderBuilderProtocol
 protocol AsselderBuilderProtocol {
     func createNewsModule(router: RouterProtocol) -> UIViewController
     func createDetailModule(article: Article?, router: RouterProtocol) -> UIViewController
+    func createSettingsModule(router: RouterProtocol) -> UIViewController
 }
-
-class AsselderModelBuilder: AsselderBuilderProtocol {    
+// MARK: - AsselderModelBuilder
+class AsselderModelBuilder: AsselderBuilderProtocol {
+    // MARK: - create news view controller
     func createNewsModule(router: RouterProtocol) -> UIViewController {
-        let view = NewsViewController()
+        let view = NewsView()
         let networkService = NetworkManager()
-        let safariService = SafariService()
-        let activityService = ActivityViewService()
-        let presenter = NewsPresenter(view: view, networkService: networkService, router: router, safariService: safariService, activityService: activityService)
+        let presenter = NewsPresenter(view: view, networkService: networkService, router: router)
         view.presenter = presenter
         return view
     }
-    
+    // MARK: - create detail view controller
     func createDetailModule(article: Article?, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let networkService = NetworkManager()
-        let safariService = SafariService()
-        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, article: article, safariService: safariService)
+        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, article: article)
+        view.presenter = presenter
+        return view
+    }
+    // MARK: - create settings view controller
+    func createSettingsModule(router: RouterProtocol) -> UIViewController {
+        let view = SettingsView()
+        let presenter = SettingsPresenter(router: router)
         view.presenter = presenter
         return view
     }

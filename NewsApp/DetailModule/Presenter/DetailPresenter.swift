@@ -7,38 +7,50 @@
 //
 
 import Foundation
-
+// MARK: - DetailViewProtocol
 protocol DetailViewProtocol: class {
     func setArticle(article: Article?)
 }
-
+// MARK: - DetailViewPresenterProtocol
 protocol DetailViewPresenterProtocol: class {
-    init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?, safariService: SafariServiceProtocol)
+    init(view: DetailViewProtocol,
+         networkService: NetworkManager,
+         router: RouterProtocol,
+         article: Article?)
+    func setDate(_ publishedAt: String?) -> String
     func setArticle()
-    func goToWeb()
+    func goToSafari()
 }
-
+// MARK: - DetailPresenter
 class DetailPresenter: DetailViewPresenterProtocol {
-    
     weak var view: DetailViewProtocol?
     var router: RouterProtocol?
-    let networkService: NetworkServiceProtocol!
     var article: Article?
-    let safariService: SafariServiceProtocol?
+    let networkService: NetworkServiceProtocol!
     
-    required init(view: DetailViewProtocol, networkService: NetworkManager, router: RouterProtocol, article: Article?, safariService: SafariServiceProtocol) {
+    required init(view: DetailViewProtocol,
+                  networkService: NetworkManager,
+                  router: RouterProtocol,
+                  article: Article?) {
         self.view = view
         self.networkService = networkService
         self.article = article
         self.router = router
-        self.safariService = safariService
     }
-    
+    // MARK: - date type casting
+    func setDate(_ publishedAt: String?) -> String {
+        guard let publishedAt = publishedAt else { return "" }
+        let formatter = DateFormatter()
+        let date: Date = ISO8601DateFormatter().date(from: publishedAt) ?? Date()
+        formatter.dateFormat = "MMM d, h:mm a"
+        return formatter.string(from: date)
+    }
+    // MARK: - set the article data
     public func setArticle() {
         self.view?.setArticle(article: article)
     }
-    
-    func goToWeb() {
-        safariService?.showNewsInBrowser(url: article?.url)
+    // MARK: - display the article in the browser
+    func goToSafari() {
+        router?.showSafari(url: article?.url)
     }
 }
