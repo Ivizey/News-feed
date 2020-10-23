@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let titleAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         let navigationController = UINavigationController()
         navigationController.navigationBar.barTintColor = #colorLiteral(red: 0.1912669241, green: 0.2193436921, blue: 0.2402234972, alpha: 1)
         navigationController.navigationBar.backgroundColor = #colorLiteral(red: 0.1912669241, green: 0.2193436921, blue: 0.2402234972, alpha: 1)
@@ -33,23 +34,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-    }
-}
-
-extension UIImageView {
-    func load(url: URL?) {
-        guard let url = url else {
-            self.image = UIImage(systemName: "photo")
-            return
-        }
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
     }
 }

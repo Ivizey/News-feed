@@ -8,6 +8,16 @@
 
 import UIKit
 
+// MARK: - UISearchBarDelegate
+extension NewsView: UISearchBarDelegate {
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = search.searchBar.text else { return }
+        if text.count > 0 {
+            presenter.searchNewsFeed(search: text)
+        }
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension NewsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +39,7 @@ extension NewsView: UITableViewDataSource {
         if indexPath.section == tableView.numberOfSections - 1 &&
             indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.presenter.fetchNextNewsList()
+                self.presenter.fetchNextNewsFeed()
             }
         }
     }
@@ -46,17 +56,10 @@ extension NewsView: UITableViewDelegate {
 // MARK: - NewsViewProtocol
 extension NewsView: NewsViewProtocol {
     func succes() {
-        let menu = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"),
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(goToSettings))
-        
-        navigationItem.rightBarButtonItem = menu
-        
         title = presenter.title?.uppercased()
         let header = HeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
         header.setStatus(status: "Articles: \(presenter.newsFeed?.totalResults ?? 0)",
-                         country: presenter.actualCountry?.uppercased() ?? "")
+                         country: presenter.country?.uppercased() ?? "")
         tableView.tableHeaderView = header
         tableView.reloadData()
     }

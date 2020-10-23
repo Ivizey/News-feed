@@ -7,108 +7,91 @@
 //
 
 import Foundation
-
+// MARK: - typealias
+typealias NewsFetchHandler = Result<NewsFeed, APIError>
+// MARK: - NewsViewProtocol
 protocol NewsViewProtocol: class {
     func succes()
     func failure(error: Error)
 }
-
+// MARK: - NewsViewPresenterProtocol
 protocol NewsViewPresenterProtocol: class {
-    init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol)
-    func getNews(country: String, category: String, index: Int)
-    func searchNews(search: String)
-    var newsFeed: NewsFeed? { get set }
-    var title: String? { get }
-    var actualCountry: String? { get }
+    init(view: NewsViewProtocol,
+         networkService: NetworkServiceProtocol,
+         router: RouterProtocol)
+    var newsFeed: NewsFeed? { get }
+    var country: String! { get }
+    var title: String! { get }
+    func searchNewsFeed(search: String)
     func tapOnTheArticle(article: Article?)
     func updateNewsFeed()
     func goToSettings()
-    func fetchNextNewsList()
-    func goToWeb(url: URL?)
-    func share(url: URL?)
+    func fetchNextNewsFeed()
 }
-
+// MARK: - NewsViewPresenterProtocol
 class NewsPresenter: NewsViewPresenterProtocol {
     weak var view: NewsViewProtocol?
     var router: RouterProtocol?
-    var title: String?
-    var actualCountry: String?
-    var nextIndex = 0
+    var country: String!
+    var title: String!
     var newsFeed: NewsFeed?
+    var nextIndex: Int!
     let networkService: NetworkServiceProtocol!
-    let safariService: SafariServiceProtocol?
-    let activityService: ActivityViewServiceProtocol?
     
-    required init(view: NewsViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, safariService: SafariServiceProtocol, activityService: ActivityViewServiceProtocol) {
+    required init(view: NewsViewProtocol,
+                  networkService: NetworkServiceProtocol,
+                  router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
         self.router = router
-        self.safariService = safariService
-        self.activityService = activityService
         updateNewsFeed()
     }
-    
+    // MARK: - update news feed with default values
     func updateNewsFeed() {
+        self.country = UserDefaults.standard.string(forKey: "Country") ?? "ua 🇺🇦"
+        self.title = UserDefaults.standard.string(forKey: "Category") ?? "general"
         newsFeed = nil
         nextIndex = 10
-        let country = String(UserDefaults.standard.string(forKey: "Country") ?? "ua")
-        let category = String(UserDefaults.standard.string(forKey: "Category") ?? "general")
-        self.title = category
-        self.actualCountry = country
-        getNews(country: String(country.prefix(2)), category: category, index: 10)
+        fetchNewsFeed(index: nextIndex)
     }
-    
-    func goToWeb(url: URL?) {
-        safariService?.showNewsInBrowser(url: url)
+    // MARK: - download a following news list (+ 10)
+    func fetchNextNewsFeed() {
+        fetchNewsFeed(index: nextIndex)
     }
-    
-    func share(url: URL?) {
-        activityService?.shareNews(url: url)
+    // MARK: - download a list news by specified parameters
+    func fetchNewsFeed(index: Int) {
+        networkService.dataLoader(to: .country(country: String(country.prefix(2)), category: title, page: index)) { [weak self] (result: NewsFetchHandler) in
+            guard let self = self else { return }
+            self.parseFetchData(result: result)
+        }
     }
-    
+    // MARK: - search for news by keyword
+    func searchNewsFeed(search: String) {
+        self.title = "Search"
+        self.country = ""
+        networkService.dataLoader(to: .search(q: search)) { [weak self] (result: NewsFetchHandler) in
+            guard let self = self else { return }
+            self.parseFetchData(result: result)
+        }
+    }
+    // MARK: - go to the article in the Safari browser
     func tapOnTheArticle(article: Article?) {
         router?.showDetail(article: article)
     }
-    
+    // MARK: - go to the application settings
     func goToSettings() {
         router?.showSettings()
     }
-    
-    func fetchNextNewsList() {
-        let country = String(UserDefaults.standard.string(forKey: "Country")?.prefix(2) ?? "ua")
-        let category = String(UserDefaults.standard.string(forKey: "Category") ?? "general")
-        getNews(country: country, category: category, index: nextIndex)
-    }
-    
-    func getNews(country: String, category: String, index: Int) {
-        networkService.dataLoader(to: .country(country: country, category: category, page: index)) { [weak self] (result: Result<NewsFeed, APIError>) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let newsFeed):
-                    self.newsFeed = newsFeed
-                    self.view?.succes()
-                    self.nextIndex += 10
-                case .failure(let error):
-                    self.view?.failure(error: error)
-                }
-            }
-        }
-    }
-    
-    func searchNews(search: String) {
-        networkService.dataLoader(to: .search(q: search)) { [weak self] (result: Result<NewsFeed, APIError>) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let newsFeed):
-                    self.newsFeed = nil
-                    self.newsFeed = newsFeed
-                    self.view?.succes()
-                    self.nextIndex += 10
-                case .failure(let error):
-                    self.view?.failure(error: error)
-                }
+    // MARK: - parse fetch data
+    private func parseFetchData(result: NewsFetchHandler) {
+        DispatchQueue.main.async {
+            switch result {
+            case .success(let newsFeed):
+                self.newsFeed = newsFeed
+                self.nextIndex += 10
+                self.view?.succes()
+            case .failure(let error):
+                self.view?.failure(error: error)
             }
         }
     }
